@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         </main>
 
         <footer className="mt-12 border-t border-slate-800 py-6 text-center text-sm text-slate-400">
-          Built with ❤️ using Next.js and Tailwind — Starter project
+          fun project
         </footer>
       </body>
     </html>
