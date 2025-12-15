@@ -1,0 +1,17 @@
+
+> gaming-portal@1.0.0 dev
+> cd .. && next dev
+
+   ▲ Next.js 16.0.10 (Turbopack)
+   - Local:         http://localhost:3000
+   - Network:       http://192.168.0.2:3000
+
+ ✓ Starting...
+Error: EACCES: permission denied, mkdir '/.next/dev'
+    at ignore-listed frames {
+  errno: -13,
+  code: 'EACCES',
+  syscall: 'mkdir',
+  path: '/.next/dev'
+}
+[?25h

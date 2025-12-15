@@ -1,13 +1,35 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { games } from "../lib/gamesData";
 import Link from "next/link";
 
 export default function HomePage() {
   const [query, setQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(10);
+
   const filteredGames = games.filter((game) =>
     game.title.toLowerCase().includes(query.toLowerCase())
   );
+
+  const visibleGames = filteredGames.slice(0, visibleCount);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight - 100
+    ) {
+      setVisibleCount((prevCount) => prevCount + 10);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setVisibleCount(10);
+  }, [query]);
 
   return (
     <main className="p-6">
@@ -24,8 +46,8 @@ export default function HomePage() {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredGames.length > 0 ? (
-          filteredGames.map((game) => (
+        {visibleGames.length > 0 ? (
+          visibleGames.map((game) => (
             <Link
               key={game.id}
               href={`/games/${game.id}`}
