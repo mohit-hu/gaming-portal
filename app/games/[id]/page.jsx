@@ -7,7 +7,7 @@ export default function GamePage({ params }) {
 
   return (
     <main className="p-6 flex flex-col items-center">
-      <h1 className="text-4xl font-bold text-purple-700 mb-4">{game.title}</h1>
+      <h1 className="text-4xl font-bold text-purple-700 mb-4">{game.name}</h1>
       <p className="text-gray-700 mb-6">{game.description}</p>
 
       {game.embedUrl ? (
