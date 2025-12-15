@@ -10,7 +10,7 @@ export default function GamePage() {
 
   return (
     <div className="flex flex-col items-center p-4">
-      <h1 className="text-2xl font-bold mb-2">{game.title}</h1>
+      <h1 className="text-2xl font-bold mb-2">play your game here</h1>
       <p className="mb-4 text-center">{game.description}</p>
 
       {/* working iframe – keeps hosts happy */}
